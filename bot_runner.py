@@ -19,7 +19,7 @@ def start(message):
 
 @bot.message_handler(content_types = ['text'])
 def get_text_messages(message):
-    FASTAPI_URL = 'http://fastapibackend-production-cd0e.up.railway.app:8000/ask'
+    FASTAPI_URL = 'https://fastapibackend-production-cd0e.up.railway.app/ask'
     if message.text == '⚠️ Bot rules':
         bot.send_message(message.from_user.id, 'TODO: Add bot rules here')
     elif message.text == '❓ Ask a question':
@@ -27,7 +27,7 @@ def get_text_messages(message):
     else:
         user_input = message.text
         try:
-            response = requests.get("http://capstone_medical_chat_bot:8000/ping", timeout = 5)
+            response = requests.get(FASTAPI_URL, timeout = 5)
             print("PING STATUS:", response.status_code)
             print("PING TEXT:", response.text)
         except Exception as e:
