@@ -27,6 +27,13 @@ def get_text_messages(message):
     else:
         user_input = message.text
         try:
+            response = requests.get("http://capstone_medical_chat_bot:8000/ping", timeout = 5)
+            print("PING STATUS:", response.status_code)
+            print("PING TEXT:", response.text)
+        except Exception as e:
+            print(f"❌ Ping failed: {e}")
+        
+        try:
             response = requests.post(FASTAPI_URL, json={"question": user_input}, timeout = 10)
             print("STATUS:", response.status_code)
             print("TEXT:", response.text)
