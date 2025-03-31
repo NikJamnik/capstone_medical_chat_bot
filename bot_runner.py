@@ -19,7 +19,7 @@ def start(message):
 
 @bot.message_handler(content_types = ['text'])
 def get_text_messages(message):
-    FASTAPI_URL = 'http://capstone_medical_chat_bot.railway.internal:8000/ask'
+    FASTAPI_URL = 'http://fastapi_backend:8000/ask'
     if message.text == '⚠️ Bot rules':
         bot.send_message(message.from_user.id, 'TODO: Add bot rules here')
     elif message.text == '❓ Ask a question':
