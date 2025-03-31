@@ -4,6 +4,10 @@ from telebot import types
 import requests
 
 
+token = os.getenv("TELEGRAM_BOT_TOKEN")
+bot = telebot.TeleBot(token)
+
+
 @bot.message_handler(commands = ['start'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
@@ -32,8 +36,5 @@ def get_text_messages(message):
             answer = f"❌ Bot Error: {e}"
         bot.send_message(message.chat.id, answer)
 
-
-token = os.getenv("TELEGRAM_BOT_TOKEN")
-bot = telebot.TeleBot(token)
 bot.polling(none_stop = True, interval = 0)
 
