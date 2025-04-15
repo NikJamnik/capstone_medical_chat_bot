@@ -1,20 +1,31 @@
-import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
+from langchain.chains import RetrievalQA
+from langchain_openai import ChatOpenAI
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_pinecone import PineconeVectorStore
+import os
 
 
 app = FastAPI()
-print("✅ FastAPI server started!")
 
 class QuestionRequest(BaseModel):
     question: str
 
+embedding = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-mpnet-base-v2")
+vectorstore = PineconeVectorStore(
+    index_name = "dermatologist-v2",
+    embedding = embedding,
+    namespace = "clinical-derm"
+)
+llm = ChatOpenAI(model = "gpt-3.5-turbo", temperature = 0)
+qa = RetrievalQA.from_chain_type(llm = llm, retriever = vectorstore.as_retriever(), return_source_documents = True)
+
 @app.post("/ask")
-async def ask_question(request: QuestionRequest):
-    question = request.question
-    answer = f"Here will be the answer of the RAG model to the question: {question}"
-    return {"answer": answer}
+async def ask(request: QuestionRequest):
+    result = qa.invoke({"query": request.question})
+    return {"answer": result["result"]}
 
 @app.get("/ping")
 async def ping():
-    return {"ping": "pong"}
+    return {"message": "RAG backend is live!"}
