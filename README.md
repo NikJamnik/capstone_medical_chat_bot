@@ -15,7 +15,7 @@ The book is used here solely for academic and research purposes under the assump
 - `LLMV2.ipynb` - Another notebook testing gpt-4 with improved chunking, prompt tuning, and use of cosine similarity for better semantic retrieval.
 
 # Getting started
-- Get required API keys
+## Get required API keys
 1. Get `OPENAI_API_KEY` in the [console](https://platform.openai.com/account/api-keys) to query OpenAI models
 2. Get `PINECONE_API_KEY` as in the [instruction](https://docs.pinecone.io/guides/projects/manage-api-keys) for storing / retrieving vector embeddings
 3. Get `TELEGRAM_BOT_TOKEN` as in the [tutorial](https://core.telegram.org/bots/tutorial) to operate the Telegram bot
@@ -31,9 +31,9 @@ pip install -r requirements.txt
 2. Add your API keys to environment variables or directly into the notebook (not recommended for shared notebooks)
 3. Open either `dermatology-rag-model-a.ipynb` or `LLMV2.ipynb` in Jupyter or VSCode
 4. Run the cells sequentially to:
-   Load and embed documents
-   Initialize the retriever
-   Query OpenAI with context 
+- Load and embed documents
+- Initialize the retriever
+- Query OpenAI with context 
 
 ## Run the bot
 1. Make sure your FastAPI backend is running locally or on in cloud
