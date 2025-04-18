@@ -3,9 +3,15 @@ This repository contains the code for a Telegram chatbot that answers questions 
 The system is trained on a clinical dermatology textbook to provide expert-level responses to user queries. The chatbot is deployed using [Railway](https://railway.com/), enabling easy cloud-based hosting.
 
 # Knowledge base
-We use the open-access [textbook]((https://webicdn.com/sdirmember/14/13336/produk/ClinicalDermatology.pdf)) Clinical Dermatology as the primary source of information for the RAG pipeline. 
-### Note on Academic Use
-The book is used here solely for academic and research purposes under the assumption that such use falls within fair use / fair dealing for educational projects. If you're unsure whether you can use this data, please consult your institution’s copyright policy.
+We use the open-access [textbook]((https://webicdn.com/sdirmember/14/13336/produk/ClinicalDermatology.pdf)) Clinical Dermatology as the source of information for the RAG pipeline. 
+## Data access statement
+The data used for this project consists of a publicly available textbook:
+> Habif, T. P. *Clinical Dermatology*.  
+> PDF available at: [https://webicdn.com/sdirmember/14/13336/produk/ClinicalDermatology.pdf](https://webicdn.com/sdirmember/14/13336/produk/ClinicalDermatology.pdf)
+This textbook was used solely for academic and non-commercial purposes as a knowledge base for our chatbot.
+We do not redistribute the content directly through this repository.  
+Users are expected to download the PDF themselves if they wish to reproduce or extend the project.
+If your use case is outside educational or research use, please check the copyright terms of the book.
 
 # Repository structure
 - `fastapi_backend.py` - Contains the FastAPI backend logic. It exposes an endpoint that receives questions, runs the RAG pipeline, and returns the answer.
