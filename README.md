@@ -8,9 +8,13 @@ We use the open-access [textbook]((https://webicdn.com/sdirmember/14/13336/produ
 The data used for this project consists of a publicly available textbook:
 > Habif, T. P. *Clinical Dermatology*.  
 > PDF available at: [https://webicdn.com/sdirmember/14/13336/produk/ClinicalDermatology.pdf](https://webicdn.com/sdirmember/14/13336/produk/ClinicalDermatology.pdf)
+
 This textbook was used solely for academic and non-commercial purposes as a knowledge base for our chatbot.
+
 We do not redistribute the content directly through this repository.  
+
 Users are expected to download the PDF themselves if they wish to reproduce or extend the project.
+
 If your use case is outside educational or research use, please check the copyright terms of the book.
 
 # Repository structure
