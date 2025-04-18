@@ -22,7 +22,7 @@ If your use case is outside educational or research use, please check the copyri
 - `bot_runner.py` - Contains the code for the Telegram chatbot. It connects with the FastAPI backend to send and receive user questions and answers.
 - `requirements.txt` - Lists all necessary Python packages required to run the notebooks, backend, and bot. Install via `pip install -r requirements.txt`
 - `dermatology-rag-model-a.ipynb` - A Jupyter notebook exploring QA performance using Google's flan-t5-large with a simple chunk-based retriever.
-- `LLMV2.ipynb` - Another notebook testing gpt-3.5-turbo with improved chunking, prompt tuning, and use of cosine similarity for better semantic retrieval.
+- `LLMV2.ipynb` (used in the Telegram chat-bot) - Another notebook testing gpt-3.5-turbo with improved chunking, prompt tuning, and use of cosine similarity for better semantic retrieval.
 
 # Getting started
 ## Get required API keys
