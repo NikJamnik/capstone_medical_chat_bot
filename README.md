@@ -39,11 +39,11 @@ cd dermatology-chatbot
 pip install -r requirements.txt
 `
 2. Add your API keys to environment variables or directly into the notebook (not recommended for shared notebooks)
-3. Open either `dermatology-rag-model-a.ipynb` or `LLMV2.ipynb` in Jupyter or VSCode
+3. Open either `dermatology-rag-model-a.ipynb` ([link](https://www.kaggle.com/code/maggieoliver1/dermatology-rag-model-a) to kaggle) or `LLMV2.ipynb` in Jupyter or VSCode
 4. Run the cells sequentially to:
 - Load and embed documents
 - Initialize the retriever
-- Query OpenAI with context 
+- Query LLM with context 
 
 ## Run the bot
 1. Make sure your FastAPI backend is running locally or on in cloud
