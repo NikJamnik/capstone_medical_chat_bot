@@ -21,8 +21,8 @@ If your use case is outside educational or research use, please check the copyri
 - `fastapi_backend.py` - Contains the FastAPI backend logic. It exposes an endpoint that receives questions, runs the RAG pipeline, and returns the answer.
 - `bot_runner.py` - Contains the code for the Telegram chatbot. It connects with the FastAPI backend to send and receive user questions and answers.
 - `requirements.txt` - Lists all necessary Python packages required to run the notebooks, backend, and bot. Install via `pip install -r requirements.txt`
-- `dermatology-rag-model-a.ipynb` - A Jupyter notebook exploring QA performance using OpenAI's gpt-3.5-turbo with a simple chunk-based retriever.
-- `LLMV2.ipynb` - Another notebook testing gpt-4 with improved chunking, prompt tuning, and use of cosine similarity for better semantic retrieval.
+- `Flan_T5_Large.ipynb` - A Jupyter notebook exploring QA performance using Google's flan-t5-large with a simple chunk-based retriever.
+- `ChatGPT_3.5_Turbo.ipynb` (used in the Telegram chat-bot) - Another notebook testing gpt-3.5-turbo with improved chunking, prompt tuning, and use of cosine similarity for better semantic retrieval.
 
 # Getting started
 ## Get required API keys
@@ -39,11 +39,11 @@ cd dermatology-chatbot
 pip install -r requirements.txt
 `
 2. Add your API keys to environment variables or directly into the notebook (not recommended for shared notebooks)
-3. Open either `dermatology-rag-model-a.ipynb` or `LLMV2.ipynb` in Jupyter or VSCode
+3. Open either `dermatology-rag-model-a.ipynb` ([link](https://www.kaggle.com/code/maggieoliver1/dermatology-rag-model-a) to kaggle) or `LLMV2.ipynb` in Jupyter or VSCode
 4. Run the cells sequentially to:
 - Load and embed documents
 - Initialize the retriever
-- Query OpenAI with context 
+- Query LLM with context 
 
 ## Run the bot
 1. Make sure your FastAPI backend is running locally or on in cloud
