@@ -2,11 +2,14 @@ import os
 import telebot
 from telebot import types
 import requests
+from presidio_analyzer import AnalyzerEngine
+from presidio_anonymizer import AnonymizerEngine
 
 
+analyzer = AnalyzerEngine()
+anonymizer = AnonymizerEngine()
 token = os.getenv("TELEGRAM_BOT_TOKEN")
 bot = telebot.TeleBot(token)
-
 
 @bot.message_handler(commands = ['start'])
 def start(message):
@@ -41,22 +44,21 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, info_text)
     else:
         user_input = message.text
-        try:
-            response = requests.get(FASTAPI_URL, timeout = 5)
-            print("PING STATUS:", response.status_code)
-            print("PING TEXT:", response.text)
-        except Exception as e:
-            print(f"❌ Ping failed: {e}")
+        analyzer_results = analyzer.analyze(text = user_input, language = "en")
+        redacted = anonymizer.anonymize(text = user_input, analyzer_results = analyzer_results).text
         
         try:
-            response = requests.post(FASTAPI_URL, json={"question": user_input}, timeout = 10)
+            response = requests.post(FASTAPI_URL, json={"question": redacted}, timeout = 10)
             print("STATUS:", response.status_code)
             print("TEXT:", response.text)
             response.raise_for_status()
             answer = response.json().get("answer", "🤖 No answer returned.")
         except Exception as e:
             answer = f"❌ Bot Error: {e}"
-        bot.send_message(message.chat.id, answer)
+
+        bot.send_message(message.chat.id, f"Original message: {user_input}")
+        bot.send_message(message.chat.id, f"Anonymized message: {redacted}")
+        bot.send_message(message.chat.id, f"Answer: {answer}")
 
 bot.polling(none_stop = True, interval = 0)
 
