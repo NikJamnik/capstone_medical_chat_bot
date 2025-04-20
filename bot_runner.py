@@ -56,9 +56,7 @@ def get_text_messages(message):
         except Exception as e:
             answer = f"❌ Bot Error: {e}"
 
-        bot.send_message(message.chat.id, f"Original message: {user_input}")
-        bot.send_message(message.chat.id, f"Anonymized message: {redacted}")
-        bot.send_message(message.chat.id, f"Answer: {answer}")
+        bot.send_message(message.chat.id, answer)
 
 bot.polling(none_stop = True, interval = 0)
 
