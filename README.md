@@ -1,5 +1,5 @@
 # Dermatology QA Chatbot with RAG
-This repository contains the code for a Telegram chatbot that answers questions about dermatology using a Retrieval-Augmented Generation (RAG) model. It integrates a FastAPI backend with OpenAI’s language models and Pinecone vector database for efficient medical question answering. 
+This repository contains the code for a Telegram chatbot that answers questions about dermatology using a Retrieval-Augmented Generation (RAG) model. The bot get rid of PII with [Presidio](https://microsoft.github.io/presidio/) SDK. It integrates a FastAPI backend with OpenAI’s language models and Pinecone vector database for efficient medical question answering. 
 The system is trained on a clinical dermatology textbook to provide expert-level responses to user queries. The chatbot is deployed using [Railway](https://railway.com/), enabling easy cloud-based hosting.
 
 # Knowledge base
@@ -21,6 +21,7 @@ If your use case is outside educational or research use, please check the copyri
 - `fastapi_backend.py` - Contains the FastAPI backend logic. It exposes an endpoint that receives questions, runs the RAG pipeline, and returns the answer.
 - `bot_runner.py` - Contains the code for the Telegram chatbot. It connects with the FastAPI backend to send and receive user questions and answers.
 - `requirements.txt` - Lists all necessary Python packages required to run the notebooks, backend, and bot. Install via `pip install -r requirements.txt`
+- `Comparison_of_RAG_model_and_LLM_only_model.ipynb` - A Jupyter notebook which compares RAG-model (gpt-3.5-turbo + Pinecone) and LLM-only model (gpt-3.5-turbo)
 - `Flan_T5_Large.ipynb` - A Jupyter notebook exploring QA performance using Google's flan-t5-large with a simple chunk-based retriever.
 - `ChatGPT_3.5_Turbo.ipynb` (used in the Telegram chat-bot) - Another notebook testing gpt-3.5-turbo with improved chunking, prompt tuning, and use of cosine similarity for better semantic retrieval.
 
@@ -39,7 +40,7 @@ cd dermatology-chatbot
 pip install -r requirements.txt
 `
 2. Add your API keys to environment variables or directly into the notebook (not recommended for shared notebooks)
-3. Open either `dermatology-rag-model-a.ipynb` ([link](https://www.kaggle.com/code/maggieoliver1/dermatology-rag-model-a) to kaggle) or `LLMV2.ipynb` in Jupyter or VSCode
+3. Open either `Flan-T5_Large.ipynb` ([link](https://www.kaggle.com/code/maggieoliver1/dermatology-rag-model-a) to kaggle), `ChatGPT_3.5_Turbo.ipynb` or `Comparison_of_RAG_model_and_LLM_only_model.ipynb` in Jupyter or VSCode
 4. Run the cells sequentially to:
 - Load and embed documents
 - Initialize the retriever

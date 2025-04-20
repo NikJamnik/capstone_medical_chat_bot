@@ -36,7 +36,7 @@ def get_text_messages(message):
         info_text = (
             "🧾 Here's how your question is handled:\n\n"
             "1️⃣ Your message is sent to a backend service hosted on Railway.\n"
-            "2️⃣ The backend queries Pinecone to retrieve relevant chunks from the dermatology textbook.\n"
+            "2️⃣ The backend get rid of PII with Presidio and queries Pinecone to retrieve relevant chunks from the dermatology textbook.\n"
             "3️⃣ The context + your question is sent to OpenAI's language model (GPT) to generate an answer.\n\n"
             "⚠️ Your question and related metadata may be processed by these services. "
             "No personal data is stored or shared."
