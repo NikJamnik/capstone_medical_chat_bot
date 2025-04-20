@@ -47,4 +47,11 @@ langchain-openai
 langchain-pinecone
 sentence-transformers
 pinecone-client
+pinecone-client[grpc]
 pypdf
+datasets
+ragas
+pandas
+matplotlib
+scikit-learn
+packaging>=23.2,<25
